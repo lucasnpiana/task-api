@@ -1,0 +1,32 @@
+{
+  "name": "task-api",
+  "version": "1.0.0",
+  "description": "Serverless Task API — AWS Lambda, Prisma e Neon",
+  "main": "dist/handler.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test:local": "tsx --env-file=.env src/localTest.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "build": "esbuild src/handler.ts --bundle --platform=node --target=node20 --outfile=dist/handler.js --external:@prisma/client --external:.prisma"
+  },
+  "keywords": [
+    "serverless",
+    "lambda",
+    "prisma",
+    "zod"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.159",
+    "@types/node": "^20.19.25",
+    "esbuild": "^0.24.0",
+    "prisma": "^6.19.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
